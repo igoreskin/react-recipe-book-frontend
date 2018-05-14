@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from '../actions/recipeActions';
 import RecipesList from '../components/RecipesList';
+import { Link } from 'react-router-dom';
 
 class RecipesContainer extends Component {
 
@@ -17,7 +18,9 @@ class RecipesContainer extends Component {
     return(
       <div>
         <div>
-          <button className="newRecipeButton">New Recipe</button>
+          <button className="newRecipeButton">
+            <Link style={{color: "white", textDecoration: "none"}} to={'/new'}>New Recipe</Link>
+          </button>
         </div>
         <RecipesList recipes={this.props.recipes} />
       </div>
