@@ -4,12 +4,16 @@ import { bindActionCreators } from 'redux';
 import * as actions from '../actions/recipeActions';
 import RecipesList from '../components/RecipesList';
 import { Link } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
+import RecipeForm from './RecipeForm';
+import RecipeShow from '../components/RecipeShow';
 
 class RecipesContainer extends Component {
 
   componentDidMount() {
     // if (this.props.recipes.length === 0) {
-      console.log('in component did mount')
+      // console.log('in component did mount')
+      console.log(this.props.match.url)
       this.props.actions.fetchRecipes()
     // }
   }
@@ -19,10 +23,15 @@ class RecipesContainer extends Component {
       <div>
         <div>
           <button className="newRecipeButton">
-            <Link style={{color: "white", textDecoration: "none"}} to={'/new'}>New Recipe</Link>
+            <Link style={{color: "white", textDecoration: "none"}} to={`${this.props.match.url}/new`}>New Recipe</Link>
           </button>
         </div>
-        <RecipesList recipes={this.props.recipes} />
+        <div>
+          <RecipesList recipes={this.props.recipes} />
+          <Switch>
+            <Route path={`${this.props.match.url}/:recipeId`} component={RecipeShow} />
+          </Switch>
+        </div>
       </div>
     )
   }

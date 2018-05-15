@@ -29,8 +29,8 @@ class RecipeForm extends Component {
       <div>
         <h2>Add a Recipe</h2>
         <form className="tile" style={{padding: "10px"}} onSubmit={this.handleOnSubmit} >
-          <input type="text" placeholder="Title" name="title" onChange={this.handleOnChange} /><br /><br />
-          <textarea rows="10" type="textarea" placeholder="Ingredients" name="ingredients" onChange={this.handleOnChange} /><br /><br />
+          <input className="input" type="text" placeholder="Title" name="title" onChange={this.handleOnChange} /><br /><br />
+          <textarea className="input" rows="10" type="textarea" placeholder="Ingredients" name="ingredients" onChange={this.handleOnChange} /><br /><br />
           <input type="submit" value="Add Recipe" />
         </form>
       </div>

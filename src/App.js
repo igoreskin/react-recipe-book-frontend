@@ -12,8 +12,8 @@ class App extends Component {
           <header className="App-header">
             <h1 className="App-title">Recipe Book</h1>
           </header>
-          <Route exact path='/' component={RecipesContainer}/>
-          <Route path='/new' component={RecipeForm}/>
+          <Route exact path='/recipes' component={RecipesContainer}/>
+          <Route path='/recipes/new' component={RecipeForm} />
         </div>
       </Router>
     );

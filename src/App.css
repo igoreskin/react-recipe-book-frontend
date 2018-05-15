@@ -37,3 +37,16 @@
   padding: 10px;
   /*float: left;*/
 }
+
+.input {
+  border: 0;
+  background: none;
+  outline: none;
+  margin-top:10px;
+  width: 300px;
+  /*font-size: 11px;*/
+}
+
+.input:focus {
+  border: solid 1px lightgrey;
+}
