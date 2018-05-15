@@ -50,3 +50,18 @@
 .input:focus {
   border: solid 1px lightgrey;
 }
+
+.deleteButton {
+  visibility: hidden;
+  float: right;
+  margin: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: sans-serif;
+  cursor: pointer;
+  color: red;
+}
+
+.tile:hover .deleteButton {
+  visibility: visible;
+}
