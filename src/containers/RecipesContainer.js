@@ -29,6 +29,7 @@ class RecipesContainer extends Component {
         <div>
           <RecipesList recipes={this.props.recipes} />
           <Switch>
+            <Route path={`${this.props.match.url}/new`} component={RecipeForm} />
             <Route path={`${this.props.match.url}/:recipeId`} component={RecipeShow} />
           </Switch>
         </div>

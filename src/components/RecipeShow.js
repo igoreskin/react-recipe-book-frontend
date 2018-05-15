@@ -9,7 +9,7 @@ const RecipeShow = ({ recipe }) =>
 
 const mapStateToProps = (state, ownProps) => {
 // console.log(ownProps.match.params.recipeId)
-console.log(state.recipes)
+  console.log(state.recipes)
   const recipe = state.recipes.recipes.find(recipe => recipe.id === parseInt(ownProps.match.params.recipeId, 10));
 
   if (recipe) {

@@ -14,8 +14,9 @@ class RecipeForm extends Component {
   handleOnSubmit = event => {
     event.preventDefault();
     const { addRecipe, history } = this.props
+    console.log(this.props)
     addRecipe(this.state);
-    history.push('/');
+    history.push('/recipes');
   }
 
   handleOnChange = event => {
