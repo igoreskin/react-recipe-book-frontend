@@ -6,8 +6,9 @@ import * as actions from '../actions/recipeActions';
 const Recipe = (props) => {
 
   const onClick = () => {
+    props.actions.deleteRecipe(props.recipe);
     console.log('clicked', props.recipe.id);
-    console.log(props)
+    console.log(props.actions.deleteRecipe)
   }
 
   return (
