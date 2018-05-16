@@ -11,6 +11,7 @@ export function fetchRecipes() {
   }
 }
 
+
 export function addRecipe(recipe, history) {
   return (dispatch) => {
     dispatch({type: 'LOADING_RECIPES'});
@@ -29,20 +30,21 @@ export function addRecipe(recipe, history) {
   }
 }
 
-export function deleteRecipe(recipe, history) {
-  return (dispatch) => {
-    dispatch({type: 'LOADING_RECIPES'});
-    return fetch(`http://localhost:3001/recipes/${recipe.id}`, {
-      method: 'DELETE',
-      headers: {
-        'Accept': "application/json",
-        'Content-Type': "application/json",
-      },
-      body: JSON.stringify(recipe)
-    })
-    .then(response => response.json())
-    .then(responseJSON => {const recipe = responseJSON;
-      return (dispatch({type: 'DELETE_RECIPE', payload: recipe}))
-    })
-  }
+
+export function deleteRecipe(recipe) {
+ return (dispatch) => {
+  dispatch({type: 'DELETE_RECIPE',
+  payload: recipe
+  })
+   dispatch({type: 'LOADING_RECIPES'});
+   return fetch(`http://localhost:3001/recipes/${recipe.id}`, {
+     method: 'DELETE',
+     headers: {
+       'Accept': "application/json",
+       'Content-Type': "application/json",
+     },
+     body: JSON.stringify(recipe)
+   }
+  )
+ }
 }

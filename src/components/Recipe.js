@@ -7,7 +7,7 @@ const Recipe = (props) => {
 
   const onClick = () => {
     props.actions.deleteRecipe(props.recipe);
-    console.log('clicked', props.recipe.id);
+    console.log('clicked', props.recipe.id, props);
     console.log(props.actions.deleteRecipe)
   }
 

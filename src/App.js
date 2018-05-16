@@ -3,7 +3,7 @@ import './App.css';
 import RecipesContainer from './containers/RecipesContainer';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-// import RecipeForm from './containers/RecipeForm';
+import RecipeForm from './containers/RecipeForm';
 import RecipeShow from './components/RecipeShow';
 
 const App = (props) => {
@@ -15,6 +15,7 @@ const App = (props) => {
           </header>
           <Route exact path='/' render={() => (<Link className="launchButton" to={'/recipes'}>Please click here to launch the application!</Link>)} />
           <Route exact path='/recipes' component={RecipesContainer}/>
+          <Route path='/recipes/new' component={RecipeForm} />
           <Route path='/recipes/1' component={RecipeShow} />
         </div>
       </Router>
