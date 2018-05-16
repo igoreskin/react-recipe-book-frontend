@@ -1,14 +1,27 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as actions from '../actions/recipeActions';
 
-const Recipe = ({recipe}) => {
+const Recipe = (props) => {
+
+  const onClick = () => {
+    console.log('clicked', props.recipe.id);
+    console.log(props)
+  }
+
   return (
     <div className="tile">
-      <span className="deleteButton">X</span>
-      <h4>{recipe.title}</h4>
-      <p>{recipe.ingredients}</p>
+      <span className="deleteButton" onClick={onClick}>X</span>
+      <h4>{props.recipe.title}</h4>
+      <p>{props.recipe.ingredients}</p>
     </div>
 
   )
 }
 
-export default Recipe;
+const mapDispatchToProps = (dispatch) => {
+  return {actions: bindActionCreators(actions, dispatch)}
+}
+
+export default connect(null, mapDispatchToProps)(Recipe);

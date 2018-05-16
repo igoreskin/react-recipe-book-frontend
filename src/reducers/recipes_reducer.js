@@ -8,6 +8,10 @@ function recipesReducer(state = {loading: false, recipes: []}, action) {
     case 'ADD_RECIPE':
       const recipe = action.payload;
       return {loading: false, recipes: [...state.recipes, recipe]}
+    case 'DELETE_RECIPE':
+      const delRecipe = action.payload;
+      const filteredRecipes = state.recipes.filter(el => el.id !== delRecipe.id)
+      return {loading: false, recipes: filteredRecipes}
 
     default:
       return state;
