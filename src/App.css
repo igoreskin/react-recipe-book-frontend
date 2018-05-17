@@ -93,10 +93,8 @@
   visibility: visible;
 }
 
-
-
 .editRecipeButton {
-  /*visibility: hidden;*/
+  visibility: hidden;
   background: aqua;
   float: left;
   margin: 5px;
@@ -107,8 +105,12 @@
   /*color: red;*/
 }
 
+.tile:hover .editRecipeButton {
+  visibility: visible;
+}
+
 .backToListButton {
-  /*visibility: hidden;*/
+  visibility: hidden;
   background: aqua;
   float: right;
   margin: 5px;
@@ -116,6 +118,10 @@
   /*font-size: 12px;*/
   font-family: sans-serif;
   cursor: pointer;
+}
+
+.tile:hover .backToListButton {
+  visibility: visible;
 }
 
 .backFromNewToListButton {

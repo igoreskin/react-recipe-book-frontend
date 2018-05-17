@@ -4,7 +4,8 @@ import RecipesContainer from './containers/RecipesContainer';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import RecipeForm from './containers/RecipeForm';
-import { WrapRecipeShow } from './components/RecipeShow';
+import RecipeShow from './components/RecipeShow';
+import RecipeEditForm from './containers/RecipeEditForm';
 
 const App = (props) => {
     return (
@@ -17,7 +18,8 @@ const App = (props) => {
           <Route exact path='/recipes' component={RecipesContainer}/>
           <Switch>
             <Route path='/recipes/new' component={RecipeForm} />
-            <Route path='/recipes/:recipeId' component={WrapRecipeShow} />
+            <Route path='/recipes/:recipeId/edit' component={RecipeEditForm} />
+            <Route path='/recipes/:recipeId' component={RecipeShow} />
           </Switch>
         </div>
       </Router>

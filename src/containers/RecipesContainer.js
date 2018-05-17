@@ -6,16 +6,20 @@ import RecipesList from '../components/RecipesList';
 import { Link } from 'react-router-dom';
 import { Route, Switch } from 'react-router-dom';
 import RecipeForm from './RecipeForm';
-import { WrapRecipeShow } from '../components/RecipeShow';
+import RecipeShow from '../components/RecipeShow';
 
 class RecipesContainer extends Component {
 
   componentDidMount() {
     // if (this.props.recipes.length === 0) {
       // console.log('in component did mount')
-      console.log(this.props.match.url)
+      // console.log(this.props.match.url)
       this.props.actions.fetchRecipes()
     // }
+  }
+
+  handleOnClick = () =>{
+
   }
 
   render() {
@@ -30,7 +34,7 @@ class RecipesContainer extends Component {
           <RecipesList recipes={this.props.recipes} />
           <Switch>
             <Route path={`${this.props.match.url}/new`} component={RecipeForm} />
-            <Route path={`${this.props.match.url}/:recipeId`} component={WrapRecipeShow} />
+            <Route path={`${this.props.match.url}/:recipeId`} component={RecipeShow} />
           </Switch>
         </div>
       </div>
