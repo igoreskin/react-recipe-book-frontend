@@ -1,11 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
-const RecipeShow = ({ recipe }) => {
+
+
+const RecipeShow = (props) => {
   return (
   <div className="tile">
-    <h4>Title: {recipe.title}</h4>
-    <p>Ingredients: {recipe.ingredients}</p>
+    <button className="editRecipeButton">
+      <Link style={{textDecoration: "none"}} to={`/recipes/new`}>New Recipe</Link>
+    </button>
+    <button className="backToListButton">
+      <Link style={{textDecoration: "none"}} to={`/recipes`}>Back to Recipes</Link>
+    </button>
+    <h4>Title: {props.recipe.title}</h4>
+    <p>Ingredients: {props.recipe.ingredients}</p>
   </div>
 )}
 
@@ -22,4 +31,4 @@ const mapStateToProps = (state, ownProps) => {
   }
 };
 
-export default connect(mapStateToProps)(RecipeShow);
+export const WrapRecipeShow = connect(mapStateToProps)(RecipeShow);

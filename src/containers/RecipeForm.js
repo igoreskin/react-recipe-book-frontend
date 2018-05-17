@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addRecipe } from '../actions/recipeActions';
+import { Link } from 'react-router-dom';
 
 class RecipeForm extends Component {
   constructor(props) {
@@ -32,8 +33,11 @@ class RecipeForm extends Component {
         <form className="tile" style={{padding: "10px"}} onSubmit={this.handleOnSubmit} >
           <input className="input" type="text" placeholder="Title" name="title" onChange={this.handleOnChange} /><br /><br />
           <textarea className="input" rows="10" type="textarea" placeholder="Ingredients" name="ingredients" onChange={this.handleOnChange} /><br /><br />
-          <input type="submit" value="Add Recipe" />
+          <input className="backFromNewToListButton" type="submit" value="Add This Recipe" />
         </form>
+        <button className="backFromNewToListButton">
+          <Link style={{textDecoration: "none"}} to={`/recipes`}>Back to All Recipes</Link>
+        </button>
       </div>
     );
   }

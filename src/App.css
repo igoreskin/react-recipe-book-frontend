@@ -77,3 +77,54 @@
 .tile:hover .deleteButton {
   visibility: visible;
 }
+
+.editButton {
+  visibility: hidden;
+  background: aqua;
+  float: left;
+  margin: 5px;
+  /*font-size: 12px;*/
+  font-family: sans-serif;
+  cursor: pointer;
+  /*color: red;*/
+}
+
+.tile:hover .editButton {
+  visibility: visible;
+}
+
+
+
+.editRecipeButton {
+  /*visibility: hidden;*/
+  background: aqua;
+  float: left;
+  margin: 5px;
+  text-decoration: none;
+  /*font-size: 12px;*/
+  font-family: sans-serif;
+  cursor: pointer;
+  /*color: red;*/
+}
+
+.backToListButton {
+  /*visibility: hidden;*/
+  background: aqua;
+  float: right;
+  margin: 5px;
+  text-decoration: none;
+  /*font-size: 12px;*/
+  font-family: sans-serif;
+  cursor: pointer;
+}
+
+.backFromNewToListButton {
+  /*visibility: hidden;*/
+  background: aqua;
+  float: center;
+  margin-top: 20px;
+  text-decoration: none;
+  /*font-size: 12px;*/
+  font-family: sans-serif;
+  cursor: pointer;
+}

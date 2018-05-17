@@ -6,7 +6,7 @@ import RecipesList from '../components/RecipesList';
 import { Link } from 'react-router-dom';
 import { Route, Switch } from 'react-router-dom';
 import RecipeForm from './RecipeForm';
-import RecipeShow from '../components/RecipeShow';
+import { WrapRecipeShow } from '../components/RecipeShow';
 
 class RecipesContainer extends Component {
 
@@ -30,7 +30,7 @@ class RecipesContainer extends Component {
           <RecipesList recipes={this.props.recipes} />
           <Switch>
             <Route path={`${this.props.match.url}/new`} component={RecipeForm} />
-            <Route path={`${this.props.match.url}/:recipeId`} component={RecipeShow} />
+            <Route path={`${this.props.match.url}/:recipeId`} component={WrapRecipeShow} />
           </Switch>
         </div>
       </div>
