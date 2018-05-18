@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import * as actions from '../actions/recipeActions';
-import { bindActionCreators } from 'redux';
+import { updateRecipe } from '../actions/recipeActions';
+// import { bindActionCreators } from 'redux';
 
 class RecipeEditForm extends Component {
   constructor(props) {
@@ -11,15 +11,16 @@ class RecipeEditForm extends Component {
     this.state = {
       title: this.props.recipe.title,
       ingredients: this.props.recipe.ingredients,
+      id: this.props.recipe.id
     };
   }
 
 
   handleOnSubmit = event => {
     event.preventDefault();
-    const { addRecipe, history } = this.props
-    console.log(this.props)
-    addRecipe(this.state);
+    const { updateRecipe, history } = this.props
+    updateRecipe(this.state);
+    console.log(this.state);
     history.push('/recipes');
   }
 
@@ -34,7 +35,7 @@ class RecipeEditForm extends Component {
       <div>
         <h2>Edit This Recipe</h2>
         <form className="tile" style={{padding: "10px"}} onSubmit={this.handleOnSubmit} >
-          <input className="input" type="text" placeholder="Title" name="title" value={this.state.title} onChange={this.handleOnChange} /><br /><br />
+          <input className="input" style={{fontSize: "14px"}} type="text" placeholder="Title" name="title" value={this.state.title} onChange={this.handleOnChange} /><br /><br />
           <textarea className="input" rows="10" placeholder="Ingredients" name="ingredients" value={this.state.ingredients} onChange={this.handleOnChange} /><br /><br />
           <input className="backFromNewToListButton" type="submit" value="Save Changes" />
         </form>
@@ -54,7 +55,7 @@ const mapStateToProps = (state, ownProps) => {
   console.log(recipe)
 
   if (recipe) {
-    // console.log(recipe)
+    console.log(recipe)
     return {recipe: recipe}
   } else {
   return { recipe: {}};
@@ -67,8 +68,8 @@ const mapStateToProps = (state, ownProps) => {
 //   }
 // }
 
-const mapDispatchToProps = (dispatch) => {
-  return {actions: bindActionCreators(actions, dispatch)}
-}
+// const mapDispatchToProps = (dispatch) => {
+//   return {actions: bindActionCreators(actions, dispatch)}
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(RecipeEditForm);
+export default connect(mapStateToProps, {updateRecipe})(RecipeEditForm);
