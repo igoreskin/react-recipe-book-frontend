@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import { Route, Switch } from 'react-router-dom';
 import RecipeForm from './RecipeForm';
 import RecipeShow from '../components/RecipeShow';
+import { NewButton } from '../components/NewButton';
 
 class RecipesContainer extends Component {
 
@@ -18,17 +19,19 @@ class RecipesContainer extends Component {
     // }
   }
 
-  handleOnClick = () =>{
+  handleOnClick = () => {
 
   }
 
   render() {
+    console.log(this.props)
     return(
       <div>
         <div>
-          <button className="newRecipeButton">
+          <NewButton url={this.props.match.url} />
+          {/*<button className="newRecipeButton">
             <Link style={{color: "white", textDecoration: "none"}} to={`${this.props.match.url}/new`}>New Recipe</Link>
-          </button>
+          </button>*/}
         </div>
         <div>
           <RecipesList recipes={this.props.recipes} />
