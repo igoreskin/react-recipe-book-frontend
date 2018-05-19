@@ -3,10 +3,6 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from '../actions/recipeActions';
 import RecipesList from '../components/RecipesList';
-import { Link } from 'react-router-dom';
-import { Route, Switch } from 'react-router-dom';
-import RecipeForm from './RecipeForm';
-import RecipeShow from '../components/RecipeShow';
 import { NewButton } from '../components/NewButton';
 
 class RecipesContainer extends Component {
@@ -24,21 +20,13 @@ class RecipesContainer extends Component {
   }
 
   render() {
-    console.log(this.props)
     return(
       <div>
         <div>
           <NewButton url={this.props.match.url} />
-          {/*<button className="newRecipeButton">
-            <Link style={{color: "white", textDecoration: "none"}} to={`${this.props.match.url}/new`}>New Recipe</Link>
-          </button>*/}
         </div>
         <div>
           <RecipesList recipes={this.props.recipes} />
-          {/*<Switch>
-            <Route path={`${this.props.match.url}/new`} component={RecipeForm} />
-            <Route path={`${this.props.match.url}/:recipeId`} component={RecipeShow} />
-          </Switch>*/}
         </div>
       </div>
     )

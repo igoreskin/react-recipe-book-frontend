@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { updateRecipe } from '../actions/recipeActions';
 import { BackButton } from '../components/BackButton';
 // import { bindActionCreators } from 'redux';
@@ -8,7 +7,7 @@ import { BackButton } from '../components/BackButton';
 class RecipeEditForm extends Component {
   constructor(props) {
     super(props);
-    console.log(this.props)
+
     this.state = {
       title: this.props.recipe.title,
       ingredients: this.props.recipe.ingredients,
@@ -21,7 +20,6 @@ class RecipeEditForm extends Component {
     event.preventDefault();
     const { updateRecipe, history } = this.props
     updateRecipe(this.state);
-    console.log(this.state);
     history.push('/recipes');
   }
 
@@ -47,11 +45,7 @@ class RecipeEditForm extends Component {
 };
 
 const mapStateToProps = (state, ownProps) => {
-  // console.log(parseInt(ownProps.match.url.slice(-1)))
-  console.log(ownProps.match.params)
-  console.log(state.recipes)
   const recipe = state.recipes.recipes.find(recipe => recipe.id === parseInt(ownProps.match.params.recipeId, 10));
-  console.log(recipe)
 
   if (recipe) {
     console.log(recipe)
@@ -61,14 +55,5 @@ const mapStateToProps = (state, ownProps) => {
   }
 };
 
-// const mapStateToProps = (state) => {
-//   return {
-//     recipes: state.recipes.recipes
-//   }
-// }
-
-// const mapDispatchToProps = (dispatch) => {
-//   return {actions: bindActionCreators(actions, dispatch)}
-// }
 
 export default connect(mapStateToProps, {updateRecipe})(RecipeEditForm);

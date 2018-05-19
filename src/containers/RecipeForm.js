@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addRecipe } from '../actions/recipeActions';
-import { Link } from 'react-router-dom';
 import { BackButton } from '../components/BackButton';
 
 class RecipeForm extends Component {
