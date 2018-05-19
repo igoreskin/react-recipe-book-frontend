@@ -9,9 +9,10 @@ function recipesReducer(state = {loading: false, recipes: []}, action) {
       return {loading: false, recipes: [...state.recipes, recipe]}
     case 'UPDATE_RECIPE':
       const updRecipe = action.payload;
-      console.log(action.payload)
-      const idx = state.recipes.find(el => el.id === updRecipe.id)
-      return {loading: false, recipes: state.recipes.splice(idx, 1, updRecipe)}
+      const recipeToUpdate = state.recipes.find(el => el.id === updRecipe.id)
+      const index = state.recipes.indexOf(recipeToUpdate)
+      const updatedRecipes = [...state.recipes.slice(0, index), updRecipe, ...state.recipes.slice(index + 1)]
+      return {loading: false, recipes: updatedRecipes}
     case 'DELETE_RECIPE':
       const delRecipe = action.payload;
       const filteredRecipes = state.recipes.filter(el => el.id !== delRecipe.id)
