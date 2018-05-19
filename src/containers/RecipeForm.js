@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addRecipe } from '../actions/recipeActions';
 import { Link } from 'react-router-dom';
+import { BackButton } from '../components/BackButton';
 
 class RecipeForm extends Component {
   constructor(props) {
@@ -35,9 +36,7 @@ class RecipeForm extends Component {
           <textarea className="input" rows="10" type="textarea" placeholder="Ingredients" name="ingredients" onChange={this.handleOnChange} /><br /><br />
           <input className="backFromNewToListButton" type="submit" value="Add This Recipe" />
         </form>
-        <button className="backFromNewToListButton">
-          <Link style={{textDecoration: "none"}} to={`/recipes`}>Back to All Recipes</Link>
-        </button>
+        <BackButton />
       </div>
     );
   }

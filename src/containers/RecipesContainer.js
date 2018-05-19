@@ -32,10 +32,10 @@ class RecipesContainer extends Component {
         </div>
         <div>
           <RecipesList recipes={this.props.recipes} />
-          <Switch>
+          {/*<Switch>
             <Route path={`${this.props.match.url}/new`} component={RecipeForm} />
             <Route path={`${this.props.match.url}/:recipeId`} component={RecipeShow} />
-          </Switch>
+          </Switch>*/}
         </div>
       </div>
     )

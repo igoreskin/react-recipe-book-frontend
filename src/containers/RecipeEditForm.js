@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { updateRecipe } from '../actions/recipeActions';
+import { BackButton } from '../components/BackButton';
 // import { bindActionCreators } from 'redux';
 
 class RecipeEditForm extends Component {
@@ -39,9 +40,7 @@ class RecipeEditForm extends Component {
           <textarea className="input" rows="10" placeholder="Ingredients" name="ingredients" value={this.state.ingredients} onChange={this.handleOnChange} /><br /><br />
           <input className="backFromNewToListButton" type="submit" value="Save Changes" />
         </form>
-        <button className="backFromNewToListButton">
-          <Link style={{textDecoration: "none"}} to={`/recipes`}>Back to All Recipes</Link>
-        </button>
+        <BackButton />
       </div>
     );
   }
