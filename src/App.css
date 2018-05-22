@@ -167,3 +167,9 @@ form.search button {
 form.search button:hover {
     background: #0000FF;
 }
+
+form.search::after {
+  content: "";
+  clear: both;
+  /*display: table;*/
+}

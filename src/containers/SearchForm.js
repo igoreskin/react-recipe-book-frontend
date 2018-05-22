@@ -13,12 +13,9 @@ class SearchForm extends Component {
 
   handleOnSubmit = event => {
     event.preventDefault();
+    event.target.reset();
     console.log(this.state.search)
     this.props.searchRecipe(this.state.search);
-    this.setState({
-      search: ''
-    })
-    // history.push('/recipes');
   }
 
   handleOnChange = event => {

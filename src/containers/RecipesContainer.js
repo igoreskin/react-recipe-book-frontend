@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import * as actions from '../actions/recipeActions';
 import RecipesList from '../components/RecipesList';
 import { NewButton } from '../components/NewButton';
+import { BackButton } from '../components/BackButton';
 
 class RecipesContainer extends Component {
 
@@ -28,6 +29,7 @@ class RecipesContainer extends Component {
         <div>
           <RecipesList recipes={this.props.recipes} />
         </div>
+        <div><BackButton /></div>
       </div>
     )
   }

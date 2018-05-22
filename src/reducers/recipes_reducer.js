@@ -23,7 +23,11 @@ function recipesReducer(state = {loading: false, recipes: []}, action) {
       state.recipes.forEach((el) => {if (el.title.toLowerCase().includes(searchTerm.toLowerCase())) {
         selected.push(el)
       }});
+      if (selected.length === 0) {
       console.log(selected)
+        window.alert("Recipe not found, please try another title!")
+        return {loading: false, recipes: state.recipes}
+      }
       return {loading: false, recipes: selected}
 
     default:
