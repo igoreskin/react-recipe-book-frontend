@@ -68,3 +68,10 @@ export function deleteRecipe(recipe) {
   )
  }
 }
+
+export function searchRecipe(search) {
+  return {
+    type: "SEARCH_RECIPE",
+    payload: search
+  }
+}

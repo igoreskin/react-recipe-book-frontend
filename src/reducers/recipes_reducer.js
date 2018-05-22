@@ -17,6 +17,14 @@ function recipesReducer(state = {loading: false, recipes: []}, action) {
       const delRecipe = action.payload;
       const filteredRecipes = state.recipes.filter(el => el.id !== delRecipe.id)
       return {loading: false, recipes: filteredRecipes}
+    case 'SEARCH_RECIPE':
+      const selected = [];
+      const searchTerm = action.payload;
+      state.recipes.forEach((el) => {if (el.title.toLowerCase().includes(searchTerm.toLowerCase())) {
+        selected.push(el)
+      }});
+      console.log(selected)
+      return {loading: false, recipes: selected}
 
     default:
       return state;

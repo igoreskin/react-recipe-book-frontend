@@ -1,5 +1,6 @@
 import React from 'react';
 import Recipe from './Recipe';
+import SearchForm from '../containers/SearchForm';
 
 const RecipesList = (props) => {
   const sortedRecipes = props.recipes.sort((a, b) => a.updated_at < b.updated_at ? 1 : -1);
@@ -10,6 +11,7 @@ const RecipesList = (props) => {
 
   return (
     <div>
+      <SearchForm /><br/><br/><br/>
       {renderRecipes}
     </div>
   )

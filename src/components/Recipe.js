@@ -17,7 +17,7 @@ const Recipe = (props) => {
       <button className="editButton">
         <Link style={{textDecoration: "none"}} to={`/recipes/${props.recipe.id}`}>Edit</Link>
       </button>
-      <span className="deleteButton" onClick={onClick}>X</span>
+      <span className="deleteButton" onClick={() => { if (window.confirm("Are you sure you want to delete this recipe?")) onClick() }}>X</span>
       <h4>{props.recipe.title}</h4>
       <p>{props.recipe.ingredients}</p>
     </div>

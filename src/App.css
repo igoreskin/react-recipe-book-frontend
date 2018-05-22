@@ -28,6 +28,20 @@
   box-shadow: 5px 5px grey;
 }
 
+.input {
+  border: 0;
+  background: none;
+  outline: none;
+  margin-top:10px;
+  width: 300px;
+}
+
+.input:focus {
+  border: solid 1px lightgrey;
+}
+
+/*BUTTONS*/
+
 .newRecipeButton {
   background: green;
   color: white;
@@ -49,18 +63,6 @@
   padding: 10px;
   box-shadow: 3px 3px grey;
   /*float: left;*/
-}
-
-.input {
-  border: 0;
-  background: none;
-  outline: none;
-  margin-top:10px;
-  width: 300px;
-}
-
-.input:focus {
-  border: solid 1px lightgrey;
 }
 
 .deleteButton {
@@ -131,4 +133,37 @@
   text-decoration: none;
   font-family: sans-serif;
   cursor: pointer;
+}
+
+/*SEARCH FORM*/
+
+form.search input[type=text] {
+  box-sizing: border-box;
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+  margin-bottom: 10px;
+}
+
+form.search button {
+    box-sizing: border-box;
+    float: left;
+    width: 20%;
+    padding: 10px;
+    background: #2196F3;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+/*#0000FF #2196F3 #0b7dda*/
+
+form.search button:hover {
+    background: #0000FF;
 }
