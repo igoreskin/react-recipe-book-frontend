@@ -25,6 +25,7 @@ export function addRecipe(recipe, history) {
     })
     .then(response => response.json())
     .then(responseJSON => {const recipe = responseJSON;
+      history.push('/recipes');
       return (dispatch({type: 'ADD_RECIPE', payload: recipe}))
     })
   }
