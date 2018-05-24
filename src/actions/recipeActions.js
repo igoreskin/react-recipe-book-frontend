@@ -51,15 +51,36 @@ export function updateRecipe(recipe) {
   }
 }
 
+// export function like(recipe, count) {
+//   return {
+//     type: "LIKE",
+//     payload: {
+//       recipe: recipe,
+//       count: count
+//     }
+//   }
+// }
+
 export function like(recipe, count) {
-  return {
-    type: "LIKE",
+  return (dispatch) => {
+    dispatch({type: 'LIKE',
     payload: {
       recipe: recipe,
       count: count
-    }
+    }})
+    dispatch({type: 'LOADING_RECIPES'});
+    return fetch(`http://localhost:3001/recipes/${recipe.id}`, {
+      method: 'PUT',
+      headers: {
+        'Accept': "application/json",
+        'Content-Type': "application/json",
+        },
+        body: JSON.stringify(recipe)
+      }
+    )
   }
 }
+
 
 
 export function deleteRecipe(recipe) {

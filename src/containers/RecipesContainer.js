@@ -15,6 +15,10 @@ class RecipesContainer extends Component {
     // }
   }
 
+  componentDidUpdate = () => {
+    console.log("in DidUpdate")
+  }
+
   handleOnClick = () => {
 
   }
@@ -35,6 +39,7 @@ class RecipesContainer extends Component {
 }
 
 const mapStateToProps = (state) => {
+  console.log(state.recipes.recipes)
   return {
     recipes: state.recipes.recipes
   }

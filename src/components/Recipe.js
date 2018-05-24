@@ -8,9 +8,9 @@ class Recipe extends Component {
   constructor(props) {
     super(props)
 
-    this.state = {
-      counter: 0
-    }
+    // this.state = {
+    //   counter: 0
+    // }
 
   }
 
@@ -31,6 +31,7 @@ class Recipe extends Component {
     const recipe = this.props.recipe;
     const count = ++this.props.recipe.likes;
     this.props.actions.like(recipe, count)
+    // console.log(count-1)
   }
 
   render() {
