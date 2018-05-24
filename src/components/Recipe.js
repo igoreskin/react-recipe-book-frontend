@@ -20,10 +20,17 @@ class Recipe extends Component {
     console.log(this.props.actions.deleteRecipe)
   }
 
+  // handleOnLikeClick = (event) => {
+  //   this.setState({
+  //     counter: ++this.state.counter,
+  //   })
+  //   console.log(++this.props.recipe.likes)
+  // }
+
   handleOnLikeClick = () => {
-    this.setState({
-      counter: ++this.state.counter,
-    })
+    const recipe = this.props.recipe;
+    const count = ++this.props.recipe.likes;
+    this.props.actions.like(recipe, count)
   }
 
   render() {
@@ -37,10 +44,10 @@ class Recipe extends Component {
         <p>{this.props.recipe.ingredients}</p>
 
         <p>
-          <button className="like" onClick={this.handleOnLikeClick}>
+          <button className="like" onClick={(event) => this.handleOnLikeClick(event)}>
             Like  <i className="fa fa-thumbs-up" style={{color: '#FF00FF'}}></i>
           </button>
-          &nbsp;&nbsp;Likes: <span className="w3-tag">&nbsp;&nbsp;{this.state.counter}&nbsp;&nbsp;</span>
+          &nbsp;&nbsp;Likes: <span className="w3-tag">&nbsp;&nbsp;{this.props.recipe.likes}&nbsp;&nbsp;</span>
         </p>
       </div>
 
