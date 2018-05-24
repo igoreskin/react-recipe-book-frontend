@@ -51,15 +51,7 @@ export function updateRecipe(recipe) {
   }
 }
 
-// export function like(recipe, count) {
-//   return {
-//     type: "LIKE",
-//     payload: {
-//       recipe: recipe,
-//       count: count
-//     }
-//   }
-// }
+
 
 export function like(recipe, count) {
   return (dispatch) => {
