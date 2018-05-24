@@ -32,6 +32,7 @@ class Recipe extends Component {
     const count = ++this.props.recipe.likes;
     this.props.actions.like(recipe, count)
     // console.log(count-1)
+    window.location.reload()
   }
 
   render() {
