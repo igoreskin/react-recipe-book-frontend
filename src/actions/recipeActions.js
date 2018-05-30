@@ -53,23 +53,22 @@ export function updateRecipe(recipe) {
 
 
 
-export function like(recipe, count) {
+export function like(recipe) {
+  const updatedRecipe = Object.assign({}, recipe, {likes: recipe.likes + 1})
   return (dispatch) => {
-    dispatch({type: 'LIKE',
-    payload: {
-      recipe: recipe,
-      count: count
-    }})
-    dispatch({type: 'LOADING_RECIPES'});
     return fetch(`http://localhost:3001/recipes/${recipe.id}`, {
       method: 'PUT',
       headers: {
         'Accept': "application/json",
         'Content-Type': "application/json",
         },
-        body: JSON.stringify(recipe)
+        body: JSON.stringify(updatedRecipe)
       }
-    )
+    ).then(res => {
+      return res.json()
+    }).then(recipe => {
+      dispatch({type: 'LIKE', payload: recipe})
+    })
   }
 }
 

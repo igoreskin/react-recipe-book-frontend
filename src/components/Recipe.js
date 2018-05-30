@@ -12,11 +12,25 @@ const Recipe = (props) => {
     console.log(props.actions.deleteRecipe)
   }
 
+  const callApi = () => {
+    console.log('a')
+    fetch('http://localhost:3001/recipes')
+    .then(response => {
+      console.log('b')
+      return response.json()
+    })
+    .then(responseJSON => console.log('c',responseJSON))
+    .catch(err => console.log('d', err))
+    console.log('e')
+
+    // a b c+json e
+
+    //a e b c+json
+  }
+
   const handleOnLikeClick = () => {
     const recipe = props.recipe;
-    const count = ++props.recipe.likes;
-    props.actions.like(recipe, count)
-    window.location.reload()
+    props.actions.like(recipe)
   }
 
   return (
@@ -34,6 +48,7 @@ const Recipe = (props) => {
         </button>
         &nbsp;&nbsp;Likes: <span className="w3-tag">&nbsp;&nbsp;{props.recipe.likes}&nbsp;&nbsp;</span>
       </p>
+      <button onClick={() => callApi()}>Call Api</button>
     </div>
   )
 }

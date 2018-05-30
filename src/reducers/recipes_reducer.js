@@ -31,12 +31,7 @@ function recipesReducer(state = {loading: false, recipes: []}, action) {
       return {loading: false, recipes: selected}
 
     case 'LIKE':
-      const liked = action.payload.recipe;
-      const count = action.payload.count;
-      const recipeToLike = state.recipes.find(el => el.id === liked.id)
-      const idx = state.recipes.indexOf(recipeToLike)
-      const updatedLikedRecipes = [...state.recipes.slice(0, idx), liked, ...state.recipes.slice(idx + 1)]
-      return {loading: false, recipes: updatedLikedRecipes}
+      return {loading: false, recipes: state.recipes.map(el => el.id === action.payload.id ? action.payload : el)}
 
     default:
       return state;

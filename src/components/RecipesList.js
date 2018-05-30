@@ -4,7 +4,7 @@ import SearchForm from '../containers/SearchForm';
 import { BackButton } from './BackButton';
 
 const RecipesList = (props) => {
-  const sortedRecipes = props.recipes.sort((a, b) => a.created_at < b.created_at ? 1 : -1);
+  const sortedRecipes = props.recipes.sort((a, b) => a.likes < b.likes ? 1 : -1);
   // console.log(sortedRecipes);
   const renderRecipes = sortedRecipes.map((recipe) =>
     <Recipe recipe={recipe} key={recipe.id} />
