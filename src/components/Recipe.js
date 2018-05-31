@@ -22,9 +22,6 @@ const Recipe = (props) => {
     .then(responseJSON => console.log('c',responseJSON))
     .catch(err => console.log('d', err))
     console.log('e')
-
-    // a b c+json e
-
     //a e b c+json
   }
 
@@ -48,7 +45,7 @@ const Recipe = (props) => {
         </button>
         &nbsp;&nbsp;Likes: <span className="w3-tag">&nbsp;&nbsp;{props.recipe.likes}&nbsp;&nbsp;</span>
       </p>
-      <button onClick={() => callApi()}>Call Api</button>
+      {/*<button onClick={() => callApi()}>Call Api</button>*/}
     </div>
   )
 }
