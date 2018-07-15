@@ -2,22 +2,16 @@ import fetch from 'isomorphic-fetch';
 
 const RECIPES_LINK = process.env.REACT_APP_RECIPES_LINK
 
-export const changeAdStatus = (userID, adID) => {
- return dispatch => {
-   dispatch(changeAdStatusStart())
-   fetch(`${API_HOST}/users/${userID}/ads/${adID}`, {
-     method: 'PATCH',
-     headers: {
-       'content-type': 'application/json'
-     }
-   })
- }
-}
-
 export function fetchRecipes() {
   return (dispatch) => {
     dispatch({type: 'LOADING_RECIPES'});
-    return fetch(RECIPES_LINK)
+    return fetch(RECIPES_LINK, {
+      method: 'GET',
+      headers: {
+        'Accept': "application/json",
+        'Content-Type': "application/json",
+      }
+    })
     .then(response => response.json())
     .then(responseJSON => {const recipes = responseJSON;
       return (dispatch({type: 'FETCH_RECIPES', payload: recipes}))
