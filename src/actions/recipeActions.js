@@ -1,9 +1,11 @@
 import fetch from 'isomorphic-fetch';
 
+const RECIPES_LINK = process.env.REACT_APP_RECIPES_LINK
+
 export function fetchRecipes() {
   return (dispatch) => {
     dispatch({type: 'LOADING_RECIPES'});
-    return fetch('http://localhost:3001/recipes')
+    return fetch(RECIPES_LINK)
     .then(response => response.json())
     .then(responseJSON => {const recipes = responseJSON;
       return (dispatch({type: 'FETCH_RECIPES', payload: recipes}))
@@ -15,7 +17,7 @@ export function fetchRecipes() {
 export function addRecipe(recipe, history) {
   return (dispatch) => {
     dispatch({type: 'LOADING_RECIPES'});
-    return fetch('http://localhost:3001/recipes', {
+    return fetch(RECIPES_LINK, {
       method: 'POST',
       headers: {
         'Accept': "application/json",
@@ -36,7 +38,7 @@ export function updateRecipe(recipe) {
   return (dispatch) => {
     dispatch({type: 'LOADING_RECIPES'});
     console.log(recipe)
-    return fetch(`http://localhost:3001/recipes/${recipe.id}`, {
+    return fetch(`${RECIPES_LINK}/${recipe.id}`, {
       method: 'PUT',
       headers: {
         'Accept': "application/json",
@@ -56,7 +58,7 @@ export function updateRecipe(recipe) {
 export function like(recipe) {
   const updatedRecipe = Object.assign({}, recipe, {likes: recipe.likes + 1})
   return (dispatch) => {
-    return fetch(`http://localhost:3001/recipes/${recipe.id}`, {
+    return fetch(`${RECIPES_LINK}/${recipe.id}`, {
       method: 'PUT',
       headers: {
         'Accept': "application/json",
@@ -80,7 +82,7 @@ export function deleteRecipe(recipe) {
   payload: recipe
   })
    dispatch({type: 'LOADING_RECIPES'});
-   return fetch(`http://localhost:3001/recipes/${recipe.id}`, {
+   return fetch(`${RECIPES_LINK}/${recipe.id}`, {
      method: 'DELETE',
      headers: {
        'Accept': "application/json",
