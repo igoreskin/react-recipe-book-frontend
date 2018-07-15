@@ -15,6 +15,8 @@ export function fetchRecipes() {
     .then(response => response.json())
     .then(responseJSON => {const recipes = responseJSON;
       return (dispatch({type: 'FETCH_RECIPES', payload: recipes}))
+    }).catch(error => {
+      console.log(error)
     })
   }
 }
