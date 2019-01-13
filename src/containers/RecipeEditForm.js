@@ -33,8 +33,8 @@ class RecipeEditForm extends Component {
     return (
       <div>
         <h2>Edit This Recipe</h2>
-        <form className="tile" style={{padding: "10px"}} onSubmit={this.handleOnSubmit} >
-          <input className="input" style={{fontSize: "14px"}} type="text" placeholder="Title" name="title" value={this.state.title} onChange={this.handleOnChange} /><br /><br />
+        <form className="tile" style={{ padding: "10px", marginTop: "60px" }} onSubmit={this.handleOnSubmit} >
+          <input className="input" type="text" placeholder="Title" name="title" value={this.state.title} onChange={this.handleOnChange} /><br /><br />
           <textarea className="input" rows="10" placeholder="Ingredients" name="ingredients" value={this.state.ingredients} onChange={this.handleOnChange} /><br /><br />
           <input className="backFromNewToListButton" type="submit" value="Save Changes" />
         </form>

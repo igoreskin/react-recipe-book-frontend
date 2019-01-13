@@ -25,7 +25,7 @@ class RecipesContainer extends Component {
 
   render() {
     return(
-      <div>
+      <div className="recipesContainer">
         <div>
           <NewButton url={this.props.match.url} />
         </div>

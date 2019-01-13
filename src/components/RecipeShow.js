@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const RecipeShow = (props) => {
   return (
-  <div className="tile">
+  <div className="tile recipeShow">
     <button className="editRecipeButton">
       <Link style={{textDecoration: "none"}} to={`/recipes/${props.recipe.id}/edit`}>Edit This Recipe</Link>
     </button>
